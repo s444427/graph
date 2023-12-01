@@ -28,9 +28,6 @@ public:
     void addEdge(int source, int destination, int weight) {
         Edge newEdge(destination, weight);
         adjacencyList[source].push_back(newEdge);
-
-//        Edge newEdgeBack(source, weight);
-//        adjacencyList[destination].push_back(newEdgeBack);
     }
 
     // Function to add a vertex to the graph
@@ -48,23 +45,25 @@ public:
             }
             cout << endl;
         }
+
     }
 
     // Function to generate a random graph
-    static WeightedGraph randGraph(int v_n, int e_n, int max_w) {
-        WeightedGraph G(v_n);
+    static WeightedGraph randGraph(int vertices_number, int edges_max, int weight_max) {
+        WeightedGraph G(vertices_number);
 
         srand(static_cast<unsigned>(time(0))); // Seed the random number generator
 
-        for (int i = 0; i < v_n; ++i) {
-            int r = rand() % e_n + 1;
+        for (int i = 1; i < vertices_number; ++i) {
+            int r = rand() % edges_max + 1;
             int j = 1;
 
             while (j <= i - 1 && j <= r) {
-                int v = rand() % i;
-                int w = rand() % max_w + 1;
+                int v = rand() % (i-1) + 1;
+                int w = rand() % weight_max + 1;
 
                 G.addEdge(v, i, w);
+                G.addEdge(i, v, w);
 
                 ++j;
             }
