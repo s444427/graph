@@ -217,8 +217,26 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
   /usr/include/c++/11/bits/allocated_ptr.h \
   /usr/include/c++/11/ext/aligned_buffer.h \
   /usr/include/c++/11/bits/list.tcc \
-  /usr/include/c++/11/ctime
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h
 
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
 
 /usr/include/c++/11/ctime:
 
@@ -246,6 +264,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+
 /usr/include/c++/11/tr1/bessel_function.tcc:
 
 /usr/include/c++/11/tr1/special_function_util.h:
@@ -270,6 +290,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
 /usr/include/wctype.h:
 
 /usr/include/c++/11/bits/stl_uninitialized.h:
@@ -293,6 +315,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 /usr/include/endian.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/limits.h:
 
 /usr/include/stdint.h:
 
@@ -426,6 +450,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
@@ -556,6 +582,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
+/usr/include/c++/11/climits:
+
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
@@ -649,6 +677,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 /usr/include/asm-generic/errno.h:
 
 /usr/include/asm-generic/errno-base.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
