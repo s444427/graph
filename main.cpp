@@ -1,10 +1,14 @@
 #include <iostream>
 #include <cmath>
 #include "graph.h"
+#include "prim.h"
 
 using namespace std;
 
+
+
 int main() {
+
     int n_power = 1; // Power of 10 for the number of vertices
 
     // Generating a random graph with 4 vertices, 6 edges, and max weight 10
@@ -15,10 +19,14 @@ int main() {
     graph.printGraph();
     cout<<"DONE"<<endl;
 
-    WeightedGraph MST = graph.prim();
 
-    cout << "\nMinimum Spanning Tree (Prim's Algorithm):" << endl;
-    MST.printGraph();
+    weight_vec = graph.getNeighbours(1);
+    priorityQueue(weight_vec);
+
+//    WeightedGraph MST = prim(graph);
+
+//    cout << "\nMinimum Spanning Tree (Prim's Algorithm):" << endl;
+//    MST.printGraph();
 
     return 0;
 }

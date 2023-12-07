@@ -227,8 +227,24 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
   /usr/include/linux/limits.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/uio_lim.h
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /home/lewy/CLionProjects/graph/prim.h \
+  /usr/include/c++/11/queue \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_queue.h \
+  /usr/include/c++/11/bits/uses_allocator.h
 
+
+/usr/include/c++/11/bits/stl_queue.h:
+
+/usr/include/c++/11/bits/stl_deque.h:
+
+/usr/include/c++/11/deque:
+
+/usr/include/c++/11/queue:
 
 /usr/include/linux/limits.h:
 
@@ -275,6 +291,10 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 /usr/include/c++/11/limits:
 
 /usr/include/c++/11/bits/specfun.h:
+
+/usr/include/c++/11/bits/stl_heap.h:
+
+/home/lewy/CLionProjects/graph/prim.h:
 
 /usr/include/c++/11/bits/stl_bvector.h:
 
@@ -440,6 +460,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 
 /usr/include/features-time64.h:
 
+/usr/include/c++/11/bits/uses_allocator.h:
+
 /usr/include/stdc-predef.h:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
@@ -585,6 +607,8 @@ CMakeFiles/untitled.dir/main.cpp.o: /home/lewy/CLionProjects/graph/main.cpp \
 /usr/include/c++/11/climits:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/c++/11/bits/deque.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 

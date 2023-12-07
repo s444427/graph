@@ -9,10 +9,11 @@ using namespace std;
 
 // Structure to represent a weighted edge
 struct Edge {
+    int source;
     int destination;
     int weight;
 
-    Edge(int dest, int w) : destination(dest), weight(w) {}
+    Edge(int sourc, int dest, int w) : source(sourc), destination(dest), weight(w) {}
 };
 
 // Weighted Graph class
@@ -31,6 +32,14 @@ public:
             return vertices;
         }
 
+        const vector<list<Edge>>& getAdjacencyList() const {
+            return adjacencyList;
+        }
+
+        list<Edge> getNeighbours(int v){
+                return adjacencyList[v];
+            }
+
     // Setters
         // Function to add a vertex to the graph
         void addVertex() {
@@ -40,7 +49,7 @@ public:
 
         // Function to add an edge to the graph
         void addEdge(int source, int destination, int weight) {
-            Edge newEdge(destination, weight);
+            Edge newEdge(source, destination, weight);
             adjacencyList[source].push_back(newEdge);
         }
 
@@ -55,7 +64,6 @@ public:
                 cout << endl;
             }
         }
-
 };
 
 
@@ -83,63 +91,3 @@ WeightedGraph randGraph(int vertices_number, int edges_max, int weight_max) {
     return G;
 }
 
-
-// Prim's Algorithm
-WeightedGraph prim(WeightedGraph graph) {
-    int vertices = graph.getVertices();
-
-    WeightedGraph MST(vertices); // Minimum Spanning Tree
-
-    vector<int> key(vertices, INT_MAX); // Key values used to pick the minimum weight edge
-    vector<int> parent(vertices, -1);   // To store the constructed MST
-    vector<bool> inMST(vertices, false); // To represent set of vertices included in MST
-
-    // Start with the first vertex
-    key[0] = 1;
-
-    cout << "start the Prim"<<endl;
-
-    // Prim's algorithm
-    for (int count = 0; count < vertices - 1; ++count) {
-        // Find the minimum key vertex that is not yet included in MST
-        int u = minKey(key, inMST);
-
-        // Add the picked vertex to the MST
-        inMST[u] = true;
-
-        // Update key value and parent index of adjacent vertices
-        for (const Edge &edge : adjacencyList[u]) {
-            int v = edge.destination;
-            int weight = edge.weight;
-            if (!inMST[v] && weight < key[v]) {
-                parent[v] = u;
-                key[v] = weight;
-            }
-        }
-    }
-
-    cout << "end the Prim"<<endl;
-
-
-    // Add edges to the MST
-    for (int i = 1; i < vertices; ++i) {
-        MST.addEdge(parent[i], i, key[i]);
-        MST.addEdge(i, parent[i], key[i]);
-    }
-
-    return MST;
-}
-
-// Helper function to find the vertex with the minimum key value
-int minKey(const vector<int> &key, const vector<bool> &inMST) {
-    int min = INT_MAX, min_index = -1;
-
-    for (int v = 0; v < vertices; ++v) {
-        if (!inMST[v] && key[v] < min) {
-            min = key[v];
-            min_index = v;
-        }
-    }
-
-    return min_index;
-}

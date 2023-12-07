@@ -88,6 +88,9 @@
 		<Unit filename="/home/lewy/CLionProjects/graph/main.cpp">
 			<Option target="untitled"/>
 		</Unit>
+		<Unit filename="/home/lewy/CLionProjects/graph/prim.h">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="/home/lewy/CLionProjects/graph/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
