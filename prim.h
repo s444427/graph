@@ -5,100 +5,38 @@
 #include <ctime>
 #include <climits>
 #include <queue>
+#include "priorityQueue.h"
 
 using namespace std;
 
-list<Edge> weight_vec;
 
 // Prim's Algorithm
 WeightedGraph prim(WeightedGraph graph) {
 
     // Define structures
-    int vertices = graph.getVertices();
-    WeightedGraph MST(vertices); // Minimum Spanning Tree
+    int vertices = graph.getVertices(); // Number of vertices in the graph
 
-    vector<int> key(vertices, INT_MAX); // Key values used to pick the minimum weight edge
-    vector<int> parent(vertices, -1);   // To store the constructed MST
-    vector<bool> inMST(vertices, false); // To represent set of vertices included in MST
+    WeightedGraph MST(vertices); // Minimum Spanning Tree
+    PriorityQueue priority_queue(vertices);
+
+    priority_queue.setFlag(1);
 
     // Start with the first vertex
-    key[0] = 1;
+    int chosen_vertex = 1;
 
-    cout << "start the Prim"<<endl;
+    for (int i=1; i<vertices - 1; i++ ){
+//        cout << endl << "Iteration #"<<i<<endl;
 
-    vector<list<Edge>> adjacencyList;
-    adjacencyList = graph.getAdjacencyList();
+        priority_queue.addEdges(graph.getNeighbours(chosen_vertex));
+        Edge min_edge = priority_queue.getMin();
 
-    // Prim's algorithm
-    for (int count = 0; count < vertices - 1; ++count) {
-        // Find the minimum key vertex that is not yet included in MST
-//        int u = minKey(key, inMST);
-        int u = 0;
+        chosen_vertex = min_edge.destination;
+        priority_queue.setFlag(chosen_vertex);
 
-        // Add the picked vertex to the MST
-        inMST[u] = true;
-
-
-        // Update key value and parent index of adjacent vertices
-        for (const Edge &edge : adjacencyList[u]) {
-            int v = edge.destination;
-            int weight = edge.weight;
-            if (!inMST[v] && weight < key[v]) {
-                parent[v] = u;
-                key[v] = weight;
-            }
-        }
+        MST.addEdge(min_edge.source, min_edge.destination, min_edge.weight); // Add the edge to the MST
+        MST.addEdge(min_edge.destination, min_edge.source, min_edge.weight); // Add the edge to the MST
     }
 
-    cout << "end the Prim"<<endl;
-
-
-    // Add edges to the MST
-    for (int i = 1; i < vertices; ++i) {
-        MST.addEdge(parent[i], i, key[i]);
-        MST.addEdge(i, parent[i], key[i]);
-    }
 
     return MST;
-}
-
-void priorityQueue(list<Edge> added_weights){
-
-    cout << "Starting Queue: ";
-
-    // print weight_vec
-    for (auto i : weight_vec) {
-        cout << i.weight << ' ';
-    }
-
-    int top_val = 0;
-    int top_source = 0;
-    int top_dest = 0;
-
-    // defining priority queue
-    priority_queue<int> pq;
-
-    // pushing array sequentially one by one
-    for (auto i : weight_vec) {
-        pq.push(i.weight);
-    }
-
-    // printing priority queue
-    cout << "\nPriority Queue: " << endl;
-    while (!pq.empty()) {
-        top_val = pq.top();
-        top_source = 0;
-        top_dest = 0;
-
-        for (auto i : weight_vec) {
-            if (i.weight == top_val){
-                top_source = i.source;
-                top_dest = i.destination;
-                break;
-            }
-        }
-
-        cout << top_val << ' ' << top_source << ' '<< top_dest << endl;
-        pq.pop();
-    }
 }

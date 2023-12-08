@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <climits>
+#include <map>
 
 using namespace std;
 
@@ -22,10 +23,12 @@ class WeightedGraph {
 private:
     int vertices; // Number of vertices in the graph
     vector<list<Edge>> adjacencyList; // Adjacency list to store edges
+    vector<bool> inMST;
+
 
 public:
     // Constructor
-        WeightedGraph(int v) : vertices(v), adjacencyList(v) {}
+        WeightedGraph(int v) : vertices(v), adjacencyList(v), inMST(v, false) {}
 
     // Getters
         int getVertices() const {
@@ -40,6 +43,10 @@ public:
                 return adjacencyList[v];
             }
 
+        bool getFlag(int v) {
+            return inMST[v];
+        }
+
     // Setters
         // Function to add a vertex to the graph
         void addVertex() {
@@ -53,16 +60,29 @@ public:
             adjacencyList[source].push_back(newEdge);
         }
 
+        void setFlag(int v) {
+            inMST[v] = true;
+        }
+
     // Methods
         // Function to print the graph
         void printGraph() {
-            for (int i = 0; i < vertices; ++i) {
-                cout << "Vertex " << i << ": ";
-                for (const Edge& edge : adjacencyList[i]) {
-                    cout << "(" << edge.destination << ", " << edge.weight << ") ";
-                }
-                cout << endl;
+            map<int, char> intToCharMap;
+
+            for (int i = 1; i <= 26; ++i) {
+                intToCharMap[i] = static_cast<char>('a' + i - 1);
             }
+
+            for (int i = 0; i < vertices; ++i) {
+//                cout << "Vertex " << i << ": ";
+                for (const Edge& edge : adjacencyList[i]) {
+                    auto from = intToCharMap.find(i);
+                    auto to = intToCharMap.find(edge.destination );
+
+                    cout << from->second << "-" << edge.weight << "-" << to->second << endl ;
+                }
+            }
+//            cout<< endl;
         }
 };
 

@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/lewy/CLionProjects/graph/binary_heap.h">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="/home/lewy/CLionProjects/graph/graph.h">
 			<Option target="untitled"/>
 		</Unit>
@@ -89,6 +92,9 @@
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/lewy/CLionProjects/graph/prim.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lewy/CLionProjects/graph/priorityQueue.h">
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/lewy/CLionProjects/graph/CMakeLists.txt">
