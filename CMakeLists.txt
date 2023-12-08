@@ -7,5 +7,6 @@ add_executable(untitled main.cpp
         graph.h
         prim.h
         priorityQueue.h
-        binary_heap.h
+        binomial_heap.h
+        fibonacci_heap.h
 )

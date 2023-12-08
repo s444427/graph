@@ -1,28 +1,52 @@
 #include <iostream>
 #include <cmath>
+#include <chrono>
+
 #include "graph.h"
 #include "prim.h"
+#include "binomial_heap.h"
+#include "fibonacci_heap.h"
 
 using namespace std;
 
 int main() {
+    int n_power;
+    bool flags[3] = {false, false, false};
+    double time_treshold = 0.1;
 
-    int n_power = 1; // Power of 10 for the number of vertices
+    for (int i=1; i<5; i++) {
+        n_power = i; // Power of 10 for the number of vertices
+        WeightedGraph graph = randGraph(pow(10, n_power)+1, 5, 100);
 
-    // Generating a random graph with 4 vertices, 6 edges, and max weight 10
-//    WeightedGraph graph = randGraph(pow(10, n_power)+1, 5, 10);
+        cout << endl << "rozmiar: 10^" << n_power;
 
-    WeightedGraph graph = randGraph(5+1, 2, 10);
+        if(n_power == 1) {
+            cout << endl << "graf: " << endl;
+            graph.printGraph();
+        }
 
-    // Printing the random graph
-    cout << "rozmiar: 10^" << n_power << endl;
-    cout << "graf: " << endl;
-    graph.printGraph();
+        if (!flags[0]) {
+            auto startTime_pq = std::chrono::high_resolution_clock::now();
+            WeightedGraph MST = prim(graph);
+            auto endTime_pq = std::chrono::high_resolution_clock::now();
+            auto duration_pq = std::chrono::duration_cast<std::chrono::microseconds>(endTime_pq - startTime_pq);
+            float duration_pq_sec = round(duration_pq.count()/1000.0)/1000; // Time in seconds
 
-    WeightedGraph MST = prim(graph);
+            if(duration_pq_sec > time_treshold) {
+                flags[0] = true;
+            }
 
-    cout << "\npriorytetowa: " << endl;
-    MST.printGraph();
+            cout << "\npriorytetowa: " << duration_pq_sec << endl;
+            if(n_power == 1) {
+                MST.printGraph();
+            }
+
+        }else{
+            cout << "\npriorytetowa: 60+" << endl;
+        }
+
+
+    }
 
     return 0;
 }
